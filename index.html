@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valentine Proposal 💖</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+    body {
+      height: 100vh;
+      background: linear-gradient(#ffe6eb, #ffd6e0);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align:center;
+      position: relative;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    h1 {
+      color:#e11d48;
+      font-size:40px;
+      margin-bottom:30px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 200px;
+      width: 350px;
+      margin: 0 auto;
+    }
+
+    button {
+      padding:14px 30px;
+      font-size:18px;
+      border-radius:30px;
+      border:none;
+      cursor:pointer;
+      transition:left 0.3s ease, top 0.3s ease;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #yesBtn {
+      left: 50px;
+      background: #ec4899;
+      color: white;
+      box-shadow:0 8px 20px rgba(236,72,153,0.4);
+    }
+
+    #noBtn {
+      left: 200px;
+      background: white;
+      color: #374151;
+      border: 2px solid #d1d5db;
+    }
+
+    .message {
+      margin-top: 40px;
+      font-size:20px;
+      color:#be123c;
+      min-height:30px;
+      z-index:1;
+      position: relative;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>❤️ Shuvro❤️<br>Will you be my Valentine? 💖</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes! 💕</button>
+      <button id="noBtn">No</button>
+    </div>
+
+    <div class="message" id="msg">Try clicking "No" 😏</div>
+  </div>
+
+  <script>
+    const container = document.querySelector('.buttons');
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+
+    const words = [
+      "Are you sure? 😢",
+      "Think again 😳",
+      "Pleaseeee 🥺",
+      "Don’t break my heart 💔",
+      "Just say YES 😍",
+      "You can’t escape 😏",
+      "Valentine without you? 😏",
+      "Last chance 😌"
+    ];
+
+    let count = 0;
+
+    // No button click: move + change text
+    noBtn.addEventListener('click', () => {
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
+
+      const padding = 10;
+
+      const newX = Math.random() * (containerWidth - btnWidth - padding * 2) + padding;
+      const newY = Math.random() * (containerHeight - btnHeight - padding * 2) + padding;
+
+      noBtn.style.left = `${newX}px`;
+      noBtn.style.top = `${newY}px`;
+
+      noBtn.textContent = words[count % words.length];
+      count++;
+    });
+
+    // Yes button click: open hearts.html
+    yesBtn.addEventListener('click', () => {
+      window.location.href = "hearts.html";
+    });
+  </script>
+  <audio autoplay loop style="display:none;">
+  <source src="SaveVid.Net_AQOmLhVTEOstio7mncfKS7r86f6TFlzOridMbLVNs1qFuzbjP_YtUXuMbVKzeWG47xoymb3ODccnAFLIjW2ze1Tu-mjtvvJZnApxLCI.mp3" type="audio/mpeg">
+  আপনার ব্রাউজার অডিও সমর্থন করে না।
+</audio>
+</body>
+</html>
